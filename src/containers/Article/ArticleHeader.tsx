@@ -1,20 +1,19 @@
 import React from "react"
-import { NavigationScreenProps } from "react-navigation"
 import { connect } from "react-redux"
 
-import { ArticleHeaderRight as ArticleHeaderRightComponent } from "../../components/Article"
+import { ArticleHeader as ArticleHeaderComponent } from "../../components/Article"
 import { State } from "../../store"
 
-type Props = ReturnType<typeof mapStateToProps> & NavigationScreenProps
+type Props = ReturnType<typeof mapStateToProps>
 
 const mapStateToProps = (state: State) => {
   return {
-    url: state.article.item.url
+    tag: state.tag.item
   }
 }
 
-const ArticleHeaderRightContainer: React.FC<Props> = ({ url }) => {
-  return <ArticleHeaderRightComponent url={url} />
+const ArticleHeaderContainer: React.FC<Props> = ({ tag }) => {
+  return <ArticleHeaderComponent name={tag.id} />
 }
 
-export const ArticleHeaderRight = connect(mapStateToProps)(ArticleHeaderRightContainer)
+export const ArticleHeader = connect(mapStateToProps)(ArticleHeaderContainer)

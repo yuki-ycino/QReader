@@ -5,6 +5,6 @@ type Props = {
   name: string
 }
 
-export const ArticleHeader: React.FC<Props> = ({ name }) => {
+export const TagHeader: React.FC<Props> = ({ name }) => {
   return <Title>{name}</Title>
 }
