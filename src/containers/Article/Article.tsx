@@ -13,7 +13,7 @@ const mapStateToProps = (state: State) => {
   }
 }
 
-const ArticleContainer: React.FC<Props> = props => {
+const ArticleContainer = (props: Props) => {
   return <ArticleComponent url={props.url} />
 }
 

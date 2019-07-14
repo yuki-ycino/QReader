@@ -5,8 +5,7 @@ type Props = {
   onPressLogin: () => void
 }
 
-export const Login: React.FC<Props> = props => {
-  console.log(props)
+export const Login = (props: Props) => {
   return (
     <>
       <Header>

@@ -13,7 +13,7 @@ const mapStateToProps = (state: State) => {
   }
 }
 
-const ArticleHeaderRightContainer: React.FC<Props> = ({ url }) => {
+const ArticleHeaderRightContainer = ({ url }: Props) => {
   return <ArticleHeaderRightComponent url={url} />
 }
 

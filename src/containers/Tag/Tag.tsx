@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { NavigationScreenProps, NavigationScreenProp } from "react-navigation"
 import { connect } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
@@ -32,20 +32,12 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<State, undefined, ArticlesAc
   }
 })
 
-class TagContainer extends React.Component<Props> {
-  componentDidMount() {
-    this.props.fetchArticles(this.props.tag)
-  }
+const TagContainer = (props: Props) => {
+  useEffect(() => {
+    props.fetchArticles(props.tag)
+  }, [])
 
-  render() {
-    return (
-      <TagComponent
-        navigation={this.props.navigation}
-        articles={this.props.articles}
-        onPressArticle={this.props.onPressArticle}
-      />
-    )
-  }
+  return <TagComponent navigation={props.navigation} articles={props.articles} onPressArticle={props.onPressArticle} />
 }
 
 export const Tag = connect(

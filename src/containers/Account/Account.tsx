@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Linking } from "expo"
 import { NavigationScreenProps } from "react-navigation"
 import { ThunkDispatch } from "redux-thunk"
@@ -30,29 +30,25 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<State, undefined, Actions>) 
   }
 })
 
-class AccountContainer extends React.Component<Props> {
-  componentDidMount() {
-    if (!this.props.account.token) {
-      this.props.onLoad()
-    }
-  }
+const AccountContainer = (props: Props) => {
+  useEffect(() => {
+    props.onLoad()
+  }, [])
 
-  render() {
-    const { id, token } = this.props.account
-    return (
-      <>
-        {id && token ? (
-          <AccountComponent account={{ id }} onPressLogout={this.props.onPressLogout} />
-        ) : (
-          <Login
-            onPressLogin={() => {
-              Linking.openURL(`${LOGIN_URL}${this.props.account.stateCode}`)
-            }}
-          />
-        )}
-      </>
-    )
-  }
+  const { id, token } = props.account
+  return (
+    <>
+      {id && token ? (
+        <AccountComponent account={{ id }} onPressLogout={props.onPressLogout} />
+      ) : (
+        <Login
+          onPressLogin={() => {
+            Linking.openURL(`${LOGIN_URL}`)
+          }}
+        />
+      )}
+    </>
+  )
 }
 
 export const Account = connect(

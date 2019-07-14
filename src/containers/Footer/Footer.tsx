@@ -3,7 +3,7 @@ import { NavigationScreenProps } from "react-navigation"
 
 import { Footer as FooterComponent } from "../../components/Footer"
 
-export const Footer: React.FC<NavigationScreenProps> = ({ navigation }) => {
+export const Footer = ({ navigation }: NavigationScreenProps) => {
   return (
     <FooterComponent
       currentRoute={navigation.state.routes[navigation.state.index].routeName}

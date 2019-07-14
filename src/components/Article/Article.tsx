@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { WebView } from "react-native"
 import { Linking } from "expo"
 
@@ -6,21 +6,19 @@ type Props = {
   url: string
 }
 
-export class Article extends React.Component<Props> {
-  webview: WebView | null = null
+export const Article = (props: Props) => {
+  const [webview, setWebview] = useState<WebView | null>(null)
 
-  render() {
-    return (
-      <WebView
-        ref={ref => (this.webview = ref)}
-        source={{ uri: this.props.url }}
-        onNavigationStateChange={event => {
-          if (this.webview && event.url && event.url !== this.props.url) {
-            this.webview.stopLoading()
-            Linking.openURL(event.url)
-          }
-        }}
-      />
-    )
-  }
+  return (
+    <WebView
+      ref={ref => setWebview(ref)}
+      source={{ uri: props.url }}
+      onNavigationStateChange={event => {
+        if (webview && event.url && event.url !== props.url) {
+          webview.stopLoading()
+          Linking.openURL(event.url)
+        }
+      }}
+    />
+  )
 }

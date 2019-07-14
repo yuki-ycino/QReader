@@ -12,7 +12,7 @@ const mapStateToProps = (state: State) => {
   }
 }
 
-const TagHeaderContainer: React.FC<Props> = ({ tag }) => {
+const TagHeaderContainer = ({ tag }: Props) => {
   return <TagHeaderComponent name={tag.id} />
 }
 

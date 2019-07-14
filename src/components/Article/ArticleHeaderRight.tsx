@@ -6,7 +6,7 @@ type Props = {
   url: string
 }
 
-export const ArticleHeaderRight: React.FC<Props> = ({ url }) => {
+export const ArticleHeaderRight = ({ url }: Props) => {
   return (
     <Button
       transparent

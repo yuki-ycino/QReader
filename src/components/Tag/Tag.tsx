@@ -10,7 +10,7 @@ type Props = {
   onPressArticle: (navigation: NavigationScreenProp<{}, {}>, article: Article) => void
 }
 
-export const Tag: React.FC<Props> = ({ navigation, articles, onPressArticle }) => {
+export const Tag = ({ navigation, articles, onPressArticle }: Props) => {
   return (
     <FlatList
       data={articles}

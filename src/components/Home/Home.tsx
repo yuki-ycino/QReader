@@ -9,7 +9,7 @@ type Props = {
   onPressTag: (tag: Tag) => void
 }
 
-export const Home: React.FC<Props> = ({ tags, onPressTag }) => {
+export const Home = ({ tags, onPressTag }: Props) => {
   return (
     <FlatList
       data={tags}

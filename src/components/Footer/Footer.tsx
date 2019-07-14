@@ -7,7 +7,7 @@ type Props = {
   onPressAccount: () => boolean
 }
 
-export const Footer: React.FC<Props> = ({ currentRoute, onPressHome, onPressAccount }) => {
+export const Footer = ({ currentRoute, onPressHome, onPressAccount }: Props) => {
   return (
     <BaseFooter>
       <FooterTab>

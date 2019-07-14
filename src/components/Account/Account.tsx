@@ -6,7 +6,7 @@ type Props = {
   onPressLogout: () => void
 }
 
-export const Account: React.FC<Props> = props => {
+export const Account = (props: Props) => {
   return (
     <>
       <Header>
