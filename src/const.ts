@@ -1,4 +1,4 @@
-import { Constants } from "expo"
+import Constants from "expo-constants"
 
 export const CLIENT_ID = Constants.manifest.extra ? Constants.manifest.extra.clientId : ""
 export const CLIENT_SECRET = Constants.manifest.extra ? Constants.manifest.extra.clientSecret : ""
