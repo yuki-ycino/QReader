@@ -1,17 +1,16 @@
-"use strict"
-
 module.exports = {
   parser: "@typescript-eslint/parser",
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:node/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "react", "react-hooks"],
   env: {
-    browser: true,
     jest: true
   },
   parserOptions: {
@@ -23,39 +22,35 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".ts", ".tsx"]
+        extensions: [".ts", ".tsx"]
       }
     },
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    react: {
+      version: "detect"
     }
   },
   rules: {
     "no-console": "off",
 
-    "prettier/prettier": "error",
-
-    // console.debugのエラーを抑制
-    "node/no-unsupported-features/node-builtins": ["error", { version: ">=10.0.0" }],
-
-    "node/no-unsupported-features/es-syntax": "off",
-    "node/no-missing-import": ["error", { tryExtensions: [".js", ".ts", ".tsx"] }],
-
-    "react/prop-types": "off",
-
-    "no-unused-vars": "off",
-    // "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
-
-    camelcase: "off",
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/camelcase": ["error", { properties: "always", ignoreDestructuring: false }],
-
-    "no-array-constructor": "off",
-    "@typescript-eslint/no-array-constructor": "error",
-
     "@typescript-eslint/array-type": ["error", "generic"],
     "@typescript-eslint/no-namespace": ["error", { allowDeclarations: true }],
     "@typescript-eslint/prefer-namespace-keyword": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/restrict-plus-operands": "error"
+    "@typescript-eslint/restrict-plus-operands": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/prefer-interface": "off",
+
+    "node/no-unsupported-features/es-syntax": "off",
+    "node/no-missing-import": ["error", { tryExtensions: [".js", ".ts", ".tsx"] }],
+
+    "prettier/prettier": "error",
+    "react/prop-types": "off"
   }
 }
