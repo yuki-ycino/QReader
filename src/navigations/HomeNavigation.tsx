@@ -1,9 +1,9 @@
 import React from "react"
 import { createStackNavigator, NavigationScreenProps } from "react-navigation"
 
-import { Home as HomeContainer, HomeHeader } from "../containers/Home"
-import { Tag, TagHeader } from "../containers/Tag"
-import { Article, ArticleHeader, ArticleHeaderRight } from "../containers/Article"
+import { Home as HomeContainer, HomeHeader } from "../containers/screens/Home"
+import { Tag, TagHeader } from "../containers/screens/Tag"
+import { Article, ArticleHeader, ArticleHeaderRight } from "../containers/screens/Article"
 
 export const Home = createStackNavigator({
   Home: {

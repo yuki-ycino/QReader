@@ -3,6 +3,7 @@ import produce from "immer"
 
 export type Tag = {
   id: string
+  title: string
   iconUrl: string
 }
 
@@ -15,6 +16,7 @@ export type Actions = ReturnType<typeof selectTag>
 const initialState: State = {
   item: {
     id: "",
+    title: "",
     iconUrl: ""
   }
 }

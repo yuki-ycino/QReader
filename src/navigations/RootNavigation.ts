@@ -2,9 +2,9 @@ import { Linking } from "expo"
 import { createAppContainer, createBottomTabNavigator } from "react-navigation"
 
 import { Home } from "./HomeNavigation"
-import { Account } from "../containers/Account"
-import { Callback } from "../containers/Callback"
-import { Footer } from "../containers/Footer"
+import { Account } from "../containers/screens/Account"
+import { Callback } from "../containers/screens/Callback"
+import { Footer } from "../containers/organisms/Footer"
 
 export const prefix = Linking.makeUrl("/")
 

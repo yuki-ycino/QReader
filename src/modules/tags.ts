@@ -33,7 +33,11 @@ export const fetchTags = ({ id }: { id: string }) => async (dispatch: Dispatch) 
 
   try {
     const result = await axios.get(`https://qiita.com/api/v2/users/${id}/following_tags`)
-    const tags = camelcaseKeys(result.data, { deep: true }) as Array<Tag>
+    const tags = camelcaseKeys(result.data, { deep: true }).map(item => {
+      item.title = item.id
+      return item
+    }) as Array<Tag>
+
     dispatch(fetchTagsDone({ tags }))
   } catch (error) {
     dispatch(fetchTagsFailed({ error }))
